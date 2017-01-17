@@ -8,6 +8,11 @@ app.get('/', function (req, res) {
 
 app.get('/convert/:currency/:value', function (req, res) {
     //hint switch on req.params.currency
+    switch(req.params.currency) {
+      case 'USD':
+        res.send({value: req.params.value * 68.10});
+        break;
+    }
 });
 
 app.listen(3000, function () {
