@@ -18,5 +18,8 @@
   "homepage": "https://github.com/balasuar/git-lab#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "supertest": "^2.0.1"
   }
 }
