@@ -24,6 +24,19 @@ app.listen(3000, function () {
 //tests
 
 request(app)
+  .get('/convert/USD/1')
+  .expect('Content-Type', /json/)
+  
+  .expect(200, {
+        value: 68.1
+  })
+  .end(function(err, res) {
+    if (err) throw err;
+});
+
+//tests
+
+request(app)
   .get('/')
   .expect('Content-Type', /json/)
   .expect(200)
