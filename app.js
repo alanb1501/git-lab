@@ -28,3 +28,15 @@ request(app)
   .end(function(err, res) {
     if (err) throw err;
 });
+
+
+
+request(app)
+  .get('/convert/INR/1')
+  .expect('Content-Type', /json/)
+  .expect(200, {
+        value: 1/68.1
+      })
+  .end(function(err, res) {
+    if (err) throw err;
+});
