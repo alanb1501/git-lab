@@ -8,13 +8,10 @@ app.get('/', function (req, res) {
 
 app.get('/convert/:currency/:value', function (req, res) {
     //hint switch on req.params.currency
-  console.log(req.params.currency);
-  console.log(req.params.value*70);
   res.send({value: req.params.value/68.1});
 });
 
 app.listen(3000, function () {
-  console.log('Test app listening on port 3000!')
 });
 
 
@@ -30,7 +27,7 @@ request(app)
 });
 
 
-
+//Test cases
 request(app)
   .get('/convert/INR/1')
   .expect('Content-Type', /json/)
