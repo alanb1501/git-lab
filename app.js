@@ -10,7 +10,7 @@ app.get('/convert/:currency/:value', function (req, res) {
     //hint switch on req.params.currency
   console.log(req.params.currency);
   console.log(req.params.value*70);
-  res.send({value: req.params.value/70});
+  res.send({value: req.params.value/68.1});
 });
 
 app.listen(3000, function () {
