@@ -5,3 +5,4 @@ Simple git lab tutorial
 
 1. Type `npm install`
 2. To run the server: `nodemon app.js`
+3. Open up a webbrowser to http://localhost:3000
