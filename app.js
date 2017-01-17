@@ -8,7 +8,11 @@ app.get('/', function (req, res) {
 
 app.get('/convert/:currency/:value', function (req, res) {
     //hint switch on req.params.currency
+
     switch(req.params.currency) {
+      case 'INR':
+        res.send({value: req.params.value/68.1});
+        break;
       case 'USD':
         res.send({value: req.params.value * 68.10});
         break;
@@ -16,7 +20,6 @@ app.get('/convert/:currency/:value', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Test app listening on port 3000!')
 });
 
 
@@ -26,7 +29,7 @@ app.listen(3000, function () {
 request(app)
   .get('/convert/USD/1')
   .expect('Content-Type', /json/)
-  
+
   .expect(200, {
         value: 68.1
   })
@@ -40,6 +43,18 @@ request(app)
   .get('/')
   .expect('Content-Type', /json/)
   .expect(200)
+  .end(function(err, res) {
+    if (err) throw err;
+});
+
+
+//Test cases
+request(app)
+  .get('/convert/INR/1')
+  .expect('Content-Type', /json/)
+  .expect(200, {
+        value: 1/68.1
+      })
   .end(function(err, res) {
     if (err) throw err;
 });
